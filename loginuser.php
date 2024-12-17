@@ -1,5 +1,5 @@
 <?php
-include '../dbconnection.php';
+include 'dbconnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Role 1 (Admin), akses ditolak
                 echo json_encode(['status' => 'error', 'message' => 'Access denied']);
             } else if ($roleId == 2) {
-                // Role 2 (Guru), redirect ke halaman guru
+                // Role 2 (Guru), akses diterima
                 echo json_encode(['status' => 'success', 'role' => 2, 'message' => 'Guru homepage']);
             } else if ($roleId == 3) {
-                // Role 3 (Siswa), redirect ke halaman siswa
+                // Role 3 (Siswa), akses diterima
                 echo json_encode(['status' => 'success', 'role' => 3, 'message' => 'Siswa homepage']);
             } else {
                 // Role tidak dikenal
